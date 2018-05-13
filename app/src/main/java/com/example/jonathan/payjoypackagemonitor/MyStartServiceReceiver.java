@@ -13,7 +13,7 @@ public class MyStartServiceReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         Log.d(TAG, "onReceive: start");
 
-        Util.scheduleJob(context);
+        JobSchedulingUtils.scheduleJob(context);
 
         Log.d(TAG, "onReceive: end");
     }

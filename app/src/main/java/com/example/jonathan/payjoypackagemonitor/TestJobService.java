@@ -1,10 +1,7 @@
 package com.example.jonathan.payjoypackagemonitor;
 
-import android.app.Service;
 import android.app.job.JobParameters;
 import android.app.job.JobService;
-import android.content.Intent;
-import android.os.IBinder;
 import android.util.Log;
 
 public class TestJobService extends JobService {
@@ -16,10 +13,10 @@ public class TestJobService extends JobService {
         Log.d(TAG,"onStartJob");
 
         // Reschedule job, as we don't set periodic job:
-        Util.scheduleJob(getApplicationContext());    // reschedule the job
+        JobSchedulingUtils.scheduleJob(getApplicationContext());    // reschedule the job
 
         // Perform job here:
-        Util.performJob(getApplicationContext());
+        JobSchedulingUtils.performJob(getApplicationContext());
 
         // Inform
         jobFinished(params, false);    // false = Don't reschedule the job.

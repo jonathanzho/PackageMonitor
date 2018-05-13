@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 Log.d(TAG+"Thread-Runnable", "run");
 
-                Util.scheduleJob(getApplicationContext());
+                JobSchedulingUtils.scheduleJob(getApplicationContext());
             }
         }).start();
 
