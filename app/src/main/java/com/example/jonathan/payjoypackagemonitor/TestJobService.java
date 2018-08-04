@@ -5,7 +5,14 @@ import android.app.job.JobService;
 import android.util.Log;
 
 public class TestJobService extends JobService {
-    private static final String TAG = TestJobService.class.getSimpleName();
+    private static final String TAG = "PJPM " + TestJobService.class.getSimpleName();
+
+    @Override
+    public void onCreate() {
+        Log.d(TAG, "onCreate");
+
+        super.onCreate();
+    }
 
     // Do small ask here or start a big task in another thread.
     @Override
@@ -32,5 +39,12 @@ public class TestJobService extends JobService {
         // Clean up the job here.
 
         return true; // true = reschedule the job.
+    }
+
+    @Override
+    public void onDestroy() {
+        Log.d(TAG, "onDestroy");
+
+        super.onDestroy();
     }
 }

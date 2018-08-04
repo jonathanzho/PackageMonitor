@@ -14,13 +14,13 @@ import java.util.List;
 import java.util.Set;
 
 public class JobSchedulingUtils {
-    private static final String TAG = JobSchedulingUtils.class.getSimpleName();
+    private static final String TAG = "PJPM " + JobSchedulingUtils.class.getSimpleName();
 
     private static final int QUERY_PACKAGES_JOB_ID = 123;
 
     private static final long MIN_LATENCY_SECS = 10;
     private static final long OVERRIDE_DEADLINE_SECS = 30;
-    private static final long INTERVAL_SECS = 10;
+    private static final long INTERVAL_SECS = 60;
 
     private static int sSequenceNumber = 0;
 
@@ -35,7 +35,7 @@ public class JobSchedulingUtils {
         // A workaround starting Android N to schedule periodic job for <= 15 secs:
         builder.setMinimumLatency(MIN_LATENCY_SECS * 1000);    // wait at least
         builder.setOverrideDeadline(OVERRIDE_DEADLINE_SECS * 1000);    // maximum delay
-        // builder.setPeriodic(INTERVAL_SECS * 1000);    // Starting Android N, >= 15 works.
+        builder.setPeriodic(INTERVAL_SECS * 1000);    // Starting Android N, >= 15 secs works.
         JobScheduler jobScheduler = context.getSystemService(JobScheduler.class);
         JobInfo jobInfo = builder.build();
 

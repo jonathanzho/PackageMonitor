@@ -7,7 +7,7 @@ import android.util.Log;
 
 // This is no longer active, as a fake system Intent can't be generated if "adb root" does not work.
 public class MyStartServiceReceiver extends BroadcastReceiver {
-    private static final String TAG = MyStartServiceReceiver.class.getSimpleName();
+    private static final String TAG = "PJPM " + MyStartServiceReceiver.class.getSimpleName();
 
     @Override
     public void onReceive(Context context, Intent intent) {
